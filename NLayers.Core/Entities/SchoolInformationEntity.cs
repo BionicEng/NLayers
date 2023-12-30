@@ -10,12 +10,13 @@ namespace NLayers.Core.Entities
 {
     public class SchoolInformationEntity
     {
-        [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int SchoolId { get; set; }
-        public string SchoolName { get; set; } = string.Empty;
-        public string SchoolDescription { get; set;} = string.Empty;
-        public string Location { get; set; } = string.Empty;
+        public int Id { get; set; }
+        public string? SchoolName { get; set; } = string.Empty;
+        public string? SchoolDescription { get; set;} = string.Empty;
+        public string? Location { get; set; } = string.Empty;
 
-        public virtual ICollection<StudentDepartmentEntity> StudentDepartments { get; set; }
+        public ICollection<SchoolDepartmentEntity> StudentDepartments { get; set; }
+        
+        public ICollection<UserEntity> Users { get; set; }
     }
 }

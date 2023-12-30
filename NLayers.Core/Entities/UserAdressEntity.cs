@@ -10,16 +10,14 @@ namespace NLayers.Core.Entities
 {
     public class UserAdressEntity
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int AdressID { get; set;}
-        public string CityName { get; set; } = string.Empty;
-        public string StreetName { get; set; } = string.Empty;
-        public string State { get; set; } = string.Empty;
-        public string PostalCode { get; set; } = string.Empty;
-        public string Country { get; set; } = string.Empty;
+        [Key, ForeignKey(nameof(User))]
+        public int Id { get; set;}
+        public string? CityName { get; set; } = string.Empty;
+        public string? StreetName { get; set; } = string.Empty;
+        public string? State { get; set; } = string.Empty;
+        public string? PostalCode { get; set; } = string.Empty;
+        public string? Country { get; set; } = string.Empty;
 
-        [ForeignKey(nameof(User))]
-        public int UserID { get; set; }
-        public virtual UserEntity User { get; set; }
+        public UserEntity User { get; set; }
     }
 }

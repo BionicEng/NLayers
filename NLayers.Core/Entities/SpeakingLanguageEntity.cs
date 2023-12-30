@@ -11,14 +11,12 @@ namespace NLayers.Core.Entities
 {
     public class SpeakingLanguageEntity : IFileEntity
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int LanguageID { get; set; }
+        public int Id { get; set; }
         public string? LanguageName { get; set; }
         public string? LanguageDescription { get; set;}
 
         public string? FileName { get; set; }
         public string? FilePath { get; set; }
-        public int UserID { get; set; }
-        public virtual UserEntity User { get; set; }
+        public ICollection<UserEntity> Users { get; set; }
     }
 }

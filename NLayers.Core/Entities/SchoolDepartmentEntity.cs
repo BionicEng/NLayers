@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace NLayers.Core.Entities
 {
-    public class CompanyUserRoleEntity
+    public class SchoolDepartmentEntity
     {
         public int Id { get; set; }
-        public string? UserRoleName { get; set; } = string.Empty;
-        public string? UserRoleDescription { get; set;} = string.Empty;
-        public ICollection<CompanyInfoEntity> CompanyInfos { get; set; }
+        public string? DepartmentName { get; set; } = string.Empty;
+        public string? DepartmentDescription {get; set; } = string.Empty;    
 
+        public ICollection<SchoolInformationEntity> Schools { get; set; }
     }
 }

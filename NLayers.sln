@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayers.Services", "NLayers
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayers.Caching", "NLayers.Caching\NLayers.Caching.csproj", "{64FB5F0A-6FE7-48B3-8DB0-A746C908EE90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayer.Admin", "NLayer.Admin\NLayer.Admin.csproj", "{3B9D2438-727D-4CE5-99D1-F901785FB1A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{64FB5F0A-6FE7-48B3-8DB0-A746C908EE90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64FB5F0A-6FE7-48B3-8DB0-A746C908EE90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64FB5F0A-6FE7-48B3-8DB0-A746C908EE90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B9D2438-727D-4CE5-99D1-F901785FB1A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B9D2438-727D-4CE5-99D1-F901785FB1A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B9D2438-727D-4CE5-99D1-F901785FB1A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B9D2438-727D-4CE5-99D1-F901785FB1A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,18 +12,19 @@ namespace NLayers.Core.Entities
     {
         [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
+        public ICollection<CertificateEntity> Certificates { get; set; }
+        public ICollection<SpeakingLanguageEntity> Languages { get; set; }
+        public ICollection<KnownProgramEntity> KnownPrograms { get; set; }
+        public ICollection<CompanyInfoEntity> CompanyInfos { get; set; }
+        public UserInformationEntity UserInfo { get; set; }
+        public UserAdressEntity UserAdress { get; set; }
+        public ICollection<SchoolInformationEntity>SchoolInfos { get; set; }
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
         public string Roles { get; set; } = string.Empty;
-        public virtual ICollection<SpeakingLanguageEntity> Languages { get; set; }
-        public virtual ICollection<KnownProgramEntity> KnownPrograms { get; set; }
-        public virtual ICollection<UserSchoolDepartmentEntity> UserDepartments { get; set; }
-        public virtual ICollection<CertificateEntity> Certificates { get; set; }
-        public virtual UserAdressEntity UserAdress { get; set; }
-        public virtual UserInformationEntity UserInfo { get; set; }
         public DateTime? CreatedAt { get ; set; }
         public DateTime? DeleteAt { get; set; }
         public DateTime? UpdateAt { get; set; }

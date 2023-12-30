@@ -10,15 +10,16 @@ namespace NLayers.Core.Entities
 {
     public class CompanyInfoEntity : IFileEntity
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CompanyID { get; set; }
-        public string CompanyName { get; set; } = string.Empty;
-        public string CompanyAddress { get; set; } = string.Empty;
-        public string CompanyField { get; set; } = string.Empty;
-        public string CompanyDescription { get; set; } = string.Empty;
-
-        public virtual ICollection<CompanyUserRoleEntity> UserRoles { get; set; }
+        public int Id { get; set; }
+        public string? CompanyName { get; set; } = string.Empty;
+        public string? CompanyAddress { get; set; } = string.Empty;
+        public string? CompanyField { get; set; } = string.Empty;
+        public string? CompanyDescription { get; set; } = string.Empty;       
         public string? FileName { get; set; }
         public string? FilePath { get; set; }
+
+        public ICollection<CompanyUserRoleEntity> UserRoles { get; set; }
+        public ICollection<UserEntity>User { get; set; }
+
     }
 }
