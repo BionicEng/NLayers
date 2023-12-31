@@ -12,8 +12,8 @@ using NLayers.Repository.DbContexts;
 namespace NLayers.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231230202451_CertificateEntitySeedData")]
-    partial class CertificateEntitySeedData
+    [Migration("20231231094516_databaseComplated")]
+    partial class databaseComplated
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -126,7 +126,7 @@ namespace NLayers.Repository.Migrations
                             Id = 1,
                             CertificateDescription = "Test",
                             CertificateName = "Test1",
-                            CreatedAt = new DateTime(2023, 12, 30, 23, 24, 50, 938, DateTimeKind.Local).AddTicks(4647),
+                            CreatedAt = new DateTime(2023, 12, 31, 12, 45, 16, 38, DateTimeKind.Local).AddTicks(1915),
                             FileName = "Test",
                             FilePath = "Test",
                             UserId = 1
@@ -136,7 +136,7 @@ namespace NLayers.Repository.Migrations
                             Id = 2,
                             CertificateDescription = "Test",
                             CertificateName = "Test2",
-                            CreatedAt = new DateTime(2023, 12, 30, 23, 24, 50, 938, DateTimeKind.Local).AddTicks(4649),
+                            CreatedAt = new DateTime(2023, 12, 31, 12, 45, 16, 38, DateTimeKind.Local).AddTicks(1916),
                             FileName = "Test",
                             FilePath = "Test",
                             UserId = 1
@@ -146,7 +146,7 @@ namespace NLayers.Repository.Migrations
                             Id = 3,
                             CertificateDescription = "Test",
                             CertificateName = "Test3",
-                            CreatedAt = new DateTime(2023, 12, 30, 23, 24, 50, 938, DateTimeKind.Local).AddTicks(4650),
+                            CreatedAt = new DateTime(2023, 12, 31, 12, 45, 16, 38, DateTimeKind.Local).AddTicks(1917),
                             FileName = "Test",
                             FilePath = "Test",
                             UserId = 1
@@ -156,7 +156,7 @@ namespace NLayers.Repository.Migrations
                             Id = 4,
                             CertificateDescription = "Test",
                             CertificateName = "Test4",
-                            CreatedAt = new DateTime(2023, 12, 30, 23, 24, 50, 938, DateTimeKind.Local).AddTicks(4651),
+                            CreatedAt = new DateTime(2023, 12, 31, 12, 45, 16, 38, DateTimeKind.Local).AddTicks(1918),
                             FileName = "Test",
                             FilePath = "Test",
                             UserId = 2
@@ -166,7 +166,7 @@ namespace NLayers.Repository.Migrations
                             Id = 5,
                             CertificateDescription = "Test",
                             CertificateName = "Test5",
-                            CreatedAt = new DateTime(2023, 12, 30, 23, 24, 50, 938, DateTimeKind.Local).AddTicks(4652),
+                            CreatedAt = new DateTime(2023, 12, 31, 12, 45, 16, 38, DateTimeKind.Local).AddTicks(1919),
                             FileName = "Test",
                             FilePath = "Test",
                             UserId = 3
@@ -199,9 +199,69 @@ namespace NLayers.Repository.Migrations
                     b.Property<string>("FilePath")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("CompanyInfoTable");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CompanyAddress = "Test1",
+                            CompanyDescription = "Test1",
+                            CompanyField = "Test1",
+                            CompanyName = "Test1",
+                            FileName = "Test1",
+                            FilePath = "Test1",
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CompanyAddress = "Test2",
+                            CompanyDescription = "Test2",
+                            CompanyField = "Test2",
+                            CompanyName = "Test2",
+                            FileName = "Test2",
+                            FilePath = "Test2",
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CompanyAddress = "Test3",
+                            CompanyDescription = "Test3",
+                            CompanyField = "Test3",
+                            CompanyName = "Test3",
+                            FileName = "Test3",
+                            FilePath = "Test3",
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CompanyAddress = "Test4",
+                            CompanyDescription = "Test4",
+                            CompanyField = "Test4",
+                            CompanyName = "Test4",
+                            FileName = "Test4",
+                            FilePath = "Test4",
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CompanyAddress = "Test5",
+                            CompanyDescription = "Test5",
+                            CompanyField = "Test5",
+                            CompanyName = "Test5",
+                            FileName = "Test5",
+                            FilePath = "Test5",
+                            UserId = 3
+                        });
                 });
 
             modelBuilder.Entity("NLayers.Core.Entities.CompanyUserRoleEntity", b =>
@@ -212,6 +272,9 @@ namespace NLayers.Repository.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int?>("CompanyInfosId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserRoleDescription")
                         .HasColumnType("nvarchar(max)");
 
@@ -221,6 +284,56 @@ namespace NLayers.Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CompanyUserRoleTable");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CompanyInfosId = 1,
+                            UserRoleDescription = "Test1",
+                            UserRoleName = "Test1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CompanyInfosId = 5,
+                            UserRoleDescription = "Test2",
+                            UserRoleName = "Test2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CompanyInfosId = 5,
+                            UserRoleDescription = "Test3",
+                            UserRoleName = "Test3"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CompanyInfosId = 4,
+                            UserRoleDescription = "Test4",
+                            UserRoleName = "Test4"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CompanyInfosId = 4,
+                            UserRoleDescription = "Test5",
+                            UserRoleName = "Test5"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CompanyInfosId = 1,
+                            UserRoleDescription = "Test6",
+                            UserRoleName = "Test6"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            UserRoleDescription = "Test7",
+                            UserRoleName = "Test7"
+                        });
                 });
 
             modelBuilder.Entity("NLayers.Core.Entities.KnownProgramEntity", b =>
@@ -252,9 +365,35 @@ namespace NLayers.Repository.Migrations
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("KnownProgramTable");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ProgramDescription = "Test1",
+                            ProgramName = "Test1",
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ProgramDescription = "Test2",
+                            ProgramName = "Test2",
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ProgramDescription = "Test3",
+                            ProgramName = "Test3",
+                            UserId = 1
+                        });
                 });
 
             modelBuilder.Entity("NLayers.Core.Entities.SchoolDepartmentEntity", b =>
@@ -271,9 +410,35 @@ namespace NLayers.Repository.Migrations
                     b.Property<string>("DepartmentName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("SchoolsId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("SchoolDepartmentTable");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DepartmentDescription = "Test1",
+                            DepartmentName = "Test1",
+                            SchoolsId = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DepartmentDescription = "Test2",
+                            DepartmentName = "Test2",
+                            SchoolsId = 3
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DepartmentDescription = "Test3",
+                            DepartmentName = "Test3",
+                            SchoolsId = 1
+                        });
                 });
 
             modelBuilder.Entity("NLayers.Core.Entities.SchoolInformationEntity", b =>
@@ -293,9 +458,38 @@ namespace NLayers.Repository.Migrations
                     b.Property<string>("SchoolName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("SchoolInformationTable");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Location = "Test1",
+                            SchoolDescription = "Test1",
+                            SchoolName = "Test1",
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Location = "Test2",
+                            SchoolDescription = "Test2",
+                            SchoolName = "Test2",
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Location = "Test3",
+                            SchoolDescription = "Test3",
+                            SchoolName = "Test3",
+                            UserId = 1
+                        });
                 });
 
             modelBuilder.Entity("NLayers.Core.Entities.SpeakingLanguageEntity", b =>
@@ -318,9 +512,35 @@ namespace NLayers.Repository.Migrations
                     b.Property<string>("LanguageName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("SpeakingLanguagesTable");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            LanguageDescription = "Test1",
+                            LanguageName = "Test1",
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            LanguageDescription = "Test2",
+                            LanguageName = "Test2",
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 3,
+                            LanguageDescription = "Test3",
+                            LanguageName = "Test3",
+                            UserId = 1
+                        });
                 });
 
             modelBuilder.Entity("NLayers.Core.Entities.UserAdressEntity", b =>
@@ -426,7 +646,7 @@ namespace NLayers.Repository.Migrations
                         new
                         {
                             UserId = 1,
-                            CreatedAt = new DateTime(2023, 12, 30, 23, 24, 50, 938, DateTimeKind.Local).AddTicks(4501),
+                            CreatedAt = new DateTime(2023, 12, 31, 12, 45, 16, 38, DateTimeKind.Local).AddTicks(1784),
                             Email = "AdminEmail@email.com",
                             FirstName = "AdminName",
                             LastName = "AdminLastName",
@@ -437,7 +657,7 @@ namespace NLayers.Repository.Migrations
                         new
                         {
                             UserId = 2,
-                            CreatedAt = new DateTime(2023, 12, 30, 23, 24, 50, 938, DateTimeKind.Local).AddTicks(4511),
+                            CreatedAt = new DateTime(2023, 12, 31, 12, 45, 16, 38, DateTimeKind.Local).AddTicks(1815),
                             Email = "Email1@email.com",
                             FirstName = "FirstName1",
                             LastName = "LastName1",
@@ -448,7 +668,7 @@ namespace NLayers.Repository.Migrations
                         new
                         {
                             UserId = 3,
-                            CreatedAt = new DateTime(2023, 12, 30, 23, 24, 50, 938, DateTimeKind.Local).AddTicks(4513),
+                            CreatedAt = new DateTime(2023, 12, 31, 12, 45, 16, 38, DateTimeKind.Local).AddTicks(1816),
                             Email = "Email2@email.com",
                             FirstName = "FirstName2",
                             LastName = "LastName2",
@@ -538,12 +758,12 @@ namespace NLayers.Repository.Migrations
                     b.Property<int>("SchoolInfosId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UsersUserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("SchoolInfosId", "UsersUserId");
+                    b.HasKey("SchoolInfosId", "UserId");
 
-                    b.HasIndex("UsersUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("SchoolInformationEntityUserEntity");
                 });
@@ -553,12 +773,12 @@ namespace NLayers.Repository.Migrations
                     b.Property<int>("LanguagesId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UsersUserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("LanguagesId", "UsersUserId");
+                    b.HasKey("LanguagesId", "UserId");
 
-                    b.HasIndex("UsersUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("SpeakingLanguageEntityUserEntity");
                 });
@@ -670,7 +890,7 @@ namespace NLayers.Repository.Migrations
 
                     b.HasOne("NLayers.Core.Entities.UserEntity", null)
                         .WithMany()
-                        .HasForeignKey("UsersUserId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -685,7 +905,7 @@ namespace NLayers.Repository.Migrations
 
                     b.HasOne("NLayers.Core.Entities.UserEntity", null)
                         .WithMany()
-                        .HasForeignKey("UsersUserId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

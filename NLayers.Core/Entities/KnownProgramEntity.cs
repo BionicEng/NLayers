@@ -18,6 +18,7 @@ namespace NLayers.Core.Entities
         public DateTime? CreatedAt { get; set; }
         public DateTime? DeleteAt { get; set; }
         public DateTime? UpdateAt { get; set; }
+        public int UserId { get; set; }
         public ICollection<UserEntity> User { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NLayers.Repository.Migrations
 {
-    public partial class CertificateEntitySeedData : Migration
+    public partial class CompanyUserRoleSeedData : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,7 +40,8 @@ namespace NLayers.Repository.Migrations
                     CompanyField = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CompanyDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FilePath = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    FilePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -54,7 +55,8 @@ namespace NLayers.Repository.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserRoleName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserRoleDescription = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    UserRoleDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CompanyInfosId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -365,11 +367,37 @@ namespace NLayers.Repository.Migrations
                 columns: new[] { "Id", "CertificateDescription", "CertificateName", "CreatedAt", "DeleteAt", "FileName", "FilePath", "UpdateAt", "UserId" },
                 values: new object[,]
                 {
-                    { 1, "Test", "Test1", new DateTime(2023, 12, 30, 23, 24, 50, 938, DateTimeKind.Local).AddTicks(4647), null, "Test", "Test", null, 1 },
-                    { 2, "Test", "Test2", new DateTime(2023, 12, 30, 23, 24, 50, 938, DateTimeKind.Local).AddTicks(4649), null, "Test", "Test", null, 1 },
-                    { 3, "Test", "Test3", new DateTime(2023, 12, 30, 23, 24, 50, 938, DateTimeKind.Local).AddTicks(4650), null, "Test", "Test", null, 1 },
-                    { 4, "Test", "Test4", new DateTime(2023, 12, 30, 23, 24, 50, 938, DateTimeKind.Local).AddTicks(4651), null, "Test", "Test", null, 2 },
-                    { 5, "Test", "Test5", new DateTime(2023, 12, 30, 23, 24, 50, 938, DateTimeKind.Local).AddTicks(4652), null, "Test", "Test", null, 3 }
+                    { 1, "Test", "Test1", new DateTime(2023, 12, 31, 12, 19, 57, 125, DateTimeKind.Local).AddTicks(6604), null, "Test", "Test", null, 1 },
+                    { 2, "Test", "Test2", new DateTime(2023, 12, 31, 12, 19, 57, 125, DateTimeKind.Local).AddTicks(6605), null, "Test", "Test", null, 1 },
+                    { 3, "Test", "Test3", new DateTime(2023, 12, 31, 12, 19, 57, 125, DateTimeKind.Local).AddTicks(6606), null, "Test", "Test", null, 1 },
+                    { 4, "Test", "Test4", new DateTime(2023, 12, 31, 12, 19, 57, 125, DateTimeKind.Local).AddTicks(6607), null, "Test", "Test", null, 2 },
+                    { 5, "Test", "Test5", new DateTime(2023, 12, 31, 12, 19, 57, 125, DateTimeKind.Local).AddTicks(6608), null, "Test", "Test", null, 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CompanyInfoTable",
+                columns: new[] { "Id", "CompanyAddress", "CompanyDescription", "CompanyField", "CompanyName", "FileName", "FilePath", "UserId" },
+                values: new object[,]
+                {
+                    { 1, "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", 1 },
+                    { 2, "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", 1 },
+                    { 3, "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", 1 },
+                    { 4, "Test4", "Test4", "Test4", "Test4", "Test4", "Test4", 2 },
+                    { 5, "Test5", "Test5", "Test5", "Test5", "Test5", "Test5", 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CompanyUserRoleTable",
+                columns: new[] { "Id", "CompanyInfosId", "UserRoleDescription", "UserRoleName" },
+                values: new object[,]
+                {
+                    { 1, 1, "Test1", "Test1" },
+                    { 2, 1, "Test2", "Test2" },
+                    { 3, 2, "Test3", "Test3" },
+                    { 4, 2, "Test4", "Test4" },
+                    { 5, 2, "Test5", "Test5" },
+                    { 6, 1, "Test6", "Test6" },
+                    { 7, null, "Test7", "Test7" }
                 });
 
             migrationBuilder.InsertData(
@@ -377,9 +405,9 @@ namespace NLayers.Repository.Migrations
                 columns: new[] { "UserId", "CreatedAt", "DeleteAt", "Email", "FirstName", "LastName", "Password", "PhoneNumber", "Roles", "UpdateAt" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 12, 30, 23, 24, 50, 938, DateTimeKind.Local).AddTicks(4501), null, "AdminEmail@email.com", "AdminName", "AdminLastName", "Admin", "AdminPhoneNumber", "Admin", null },
-                    { 2, new DateTime(2023, 12, 30, 23, 24, 50, 938, DateTimeKind.Local).AddTicks(4511), null, "Email1@email.com", "FirstName1", "LastName1", "Password1", "PhoneNumber1", "User", null },
-                    { 3, new DateTime(2023, 12, 30, 23, 24, 50, 938, DateTimeKind.Local).AddTicks(4513), null, "Email2@email.com", "FirstName2", "LastName2", "Password2", "PhoneNumber2", "User", null }
+                    { 1, new DateTime(2023, 12, 31, 12, 19, 57, 125, DateTimeKind.Local).AddTicks(6501), null, "AdminEmail@email.com", "AdminName", "AdminLastName", "Admin", "AdminPhoneNumber", "Admin", null },
+                    { 2, new DateTime(2023, 12, 31, 12, 19, 57, 125, DateTimeKind.Local).AddTicks(6511), null, "Email1@email.com", "FirstName1", "LastName1", "Password1", "PhoneNumber1", "User", null },
+                    { 3, new DateTime(2023, 12, 31, 12, 19, 57, 125, DateTimeKind.Local).AddTicks(6513), null, "Email2@email.com", "FirstName2", "LastName2", "Password2", "PhoneNumber2", "User", null }
                 });
 
             migrationBuilder.InsertData(

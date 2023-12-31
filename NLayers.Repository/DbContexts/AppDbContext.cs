@@ -25,7 +25,7 @@ namespace NLayers.Repository.DbContexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserEntity>()
-                .HasData(
+                    .HasData(
                     new UserEntity()
                     {
                         UserId = 1,
@@ -58,8 +58,8 @@ namespace NLayers.Repository.DbContexts
                     });
 
             modelBuilder.Entity<UserAdressEntity>()
-                .HasData(
-                    new UserAdressEntity() 
+                    .HasData(
+                    new UserAdressEntity()
                     {
                         Id = 1,
                         CityName = "Ankara/Sincan",
@@ -88,12 +88,12 @@ namespace NLayers.Repository.DbContexts
                         StreetName = "12345",
                     });
             modelBuilder.Entity<UserInformationEntity>()
-                .HasData(
-                    new UserInformationEntity () 
+                    .HasData(
+                    new UserInformationEntity()
                     {
-                        Id= 1,
+                        Id = 1,
                         Gender = "Male",
-                        BirtDay = new DateTime(2023,12,25),
+                        BirtDay = new DateTime(2023, 12, 25),
                         Hobies = "Hobies A",
                         UserDescription = "Description A",
                         MSwasDone = true,
@@ -119,7 +119,7 @@ namespace NLayers.Repository.DbContexts
                         MSwasDone = true
                     });
             modelBuilder.Entity<CertificateEntity>()
-                .HasData(
+                        .HasData(
                         new CertificateEntity()
                         {
                             Id = 1,
@@ -170,6 +170,226 @@ namespace NLayers.Repository.DbContexts
                             FilePath = "Test",
                             CreatedAt = DateTime.Now
                         });
+            modelBuilder.Entity<CompanyInfoEntity>()
+                        .HasData(
+                        new CompanyInfoEntity()
+                        {
+                            Id = 1,
+                            CompanyName = "Test1",
+                            CompanyDescription = "Test1",
+                            FileName = "Test1",
+                            FilePath = "Test1",
+                            CompanyField = "Test1",
+                            CompanyAddress = "Test1",
+                            UserId = 1
+
+                        },
+                         new CompanyInfoEntity()
+                         {
+                             Id = 2,
+                             CompanyName = "Test2",
+                             CompanyDescription = "Test2",
+                             FileName = "Test2",
+                             FilePath = "Test2",
+                             CompanyField = "Test2",
+                             CompanyAddress = "Test2",
+                             UserId = 1
+                         },
+                          new CompanyInfoEntity()
+                          {
+                              Id = 3,
+                              CompanyName = "Test3",
+                              CompanyDescription = "Test3",
+                              FileName = "Test3",
+                              FilePath = "Test3",
+                              CompanyField = "Test3",
+                              CompanyAddress = "Test3",
+                              UserId = 1
+                          },
+                           new CompanyInfoEntity()
+                           {
+                               Id = 4,
+                               CompanyName = "Test4",
+                               CompanyDescription = "Test4",
+                               FileName = "Test4",
+                               FilePath = "Test4",
+                               CompanyField = "Test4",
+                               CompanyAddress = "Test4",
+                               UserId = 2
+                           },
+                            new CompanyInfoEntity()
+                            {
+                                Id = 5,
+                                CompanyName = "Test5",
+                                CompanyDescription = "Test5",
+                                FileName = "Test5",
+                                FilePath = "Test5",
+                                CompanyField = "Test5",
+                                CompanyAddress = "Test5",
+                                UserId = 3
+                            });
+            modelBuilder.Entity<CompanyUserRoleEntity>()
+                            .HasData(
+                            new CompanyUserRoleEntity()
+                            {
+                                Id = 1,
+                                UserRoleName = "Test1",
+                                UserRoleDescription = "Test1",
+                                CompanyInfosId = 1,
+                            },
+                            new CompanyUserRoleEntity()
+                            {
+                                Id = 2,
+                                UserRoleName = "Test2",
+                                UserRoleDescription = "Test2",
+                                CompanyInfosId = 5,
+                            },
+
+                            new CompanyUserRoleEntity()
+                            {
+                                Id = 3,
+                                UserRoleName = "Test3",
+                                UserRoleDescription = "Test3",
+                                CompanyInfosId = 5,
+                            },
+                             new CompanyUserRoleEntity()
+                             {
+                                 Id = 4,
+                                 UserRoleName = "Test4",
+                                 UserRoleDescription = "Test4",
+                                 CompanyInfosId = 4,
+                             },
+                            new CompanyUserRoleEntity()
+                            {
+                                Id = 5,
+                                UserRoleName = "Test5",
+                                UserRoleDescription = "Test5",
+                                CompanyInfosId = 4,
+                            },
+                            new CompanyUserRoleEntity()
+                            {
+                                Id = 6,
+                                UserRoleName = "Test6",
+                                UserRoleDescription = "Test6",
+                                CompanyInfosId = 1,
+                            },
+                            new CompanyUserRoleEntity()
+                            {
+                                Id = 7,
+                                UserRoleName = "Test7",
+                                UserRoleDescription = "Test7",
+
+                            });
+            modelBuilder.Entity<KnownProgramEntity>()
+                            .HasData(
+                            new KnownProgramEntity()
+                            {
+                                Id = 1,
+                                ProgramName = "Test1",
+                                ProgramDescription = "Test1",
+                                UserId = 2,
+
+
+                            },
+                            new KnownProgramEntity()
+                            {
+                                Id = 2,
+                                ProgramName = "Test2",
+                                ProgramDescription = "Test2",
+                                UserId = 3,
+
+
+                            },
+                            new KnownProgramEntity()
+                            {
+                                Id = 3,
+                                ProgramName = "Test3",
+                                ProgramDescription = "Test3",
+                                UserId = 1,
+
+
+                            });
+            modelBuilder.Entity<SpeakingLanguageEntity>()
+                            .HasData(
+                            new SpeakingLanguageEntity()
+                            {
+                                Id = 1,
+                                LanguageName = "Test1",
+                                LanguageDescription = "Test1",
+                                UserId = 2,
+
+
+                            },
+                            new SpeakingLanguageEntity()
+                            {
+                                Id = 2,
+                                LanguageName = "Test2",
+                                LanguageDescription = "Test2",
+                                UserId = 3,
+
+
+                            },
+                            new SpeakingLanguageEntity()
+                            {
+                                Id = 3,
+                                LanguageName = "Test3",
+                                LanguageDescription = "Test3",
+                                UserId = 1,
+
+
+                            });
+            modelBuilder.Entity<SchoolInformationEntity>()
+                             .HasData(
+                              new SchoolInformationEntity()
+                              {
+                                  Id = 1,
+                                  SchoolName = "Test1",
+                                  SchoolDescription = "Test1",
+                                  Location = "Test1",                                
+                                  UserId = 2,
+                              },
+                              new SchoolInformationEntity()
+                              {
+                                  Id = 2,
+                                  SchoolName = "Test2",
+                                  SchoolDescription = "Test2",
+                                  Location = "Test2",
+                                  UserId = 3,
+                              },
+                              new SchoolInformationEntity()
+                              {
+                                  Id = 3,
+                                  SchoolName = "Test3",
+                                  SchoolDescription = "Test3",
+                                  Location = "Test3",
+                                  UserId = 1,
+                              });
+            modelBuilder.Entity<SchoolDepartmentEntity>()
+                             .HasData(
+                              new SchoolDepartmentEntity()
+                              {
+                                  Id = 1,
+                                  DepartmentName = "Test1",
+                                  DepartmentDescription = "Test1",
+                                  SchoolsId = 2,
+                              },
+                              new SchoolDepartmentEntity()
+                              {
+                                  Id = 2,
+                                  DepartmentName = "Test2",
+                                  DepartmentDescription = "Test2",
+                                  SchoolsId = 3,
+                              },
+                              new SchoolDepartmentEntity()
+                              {
+                                  Id = 3,
+                                  DepartmentName = "Test3",
+                                  DepartmentDescription = "Test3",
+                                  SchoolsId = 1,
+                              });
+
+
+
 
         }
 

@@ -17,6 +17,7 @@ namespace NLayers.Core.Entities
 
         public string? FileName { get; set; }
         public string? FilePath { get; set; }
-        public ICollection<UserEntity> Users { get; set; }
+        public int? UserId { get; set; }
+        public ICollection<UserEntity> User { get; set; }
     }
 }

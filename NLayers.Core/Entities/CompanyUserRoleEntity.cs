@@ -14,6 +14,7 @@ namespace NLayers.Core.Entities
         public int Id { get; set; }
         public string? UserRoleName { get; set; } = string.Empty;
         public string? UserRoleDescription { get; set;} = string.Empty;
+        public int? CompanyInfosId { get; set; }
         public ICollection<CompanyInfoEntity> CompanyInfos { get; set; }
 
     }
