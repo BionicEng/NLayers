@@ -12,7 +12,7 @@ using NLayers.Repository.DbContexts;
 namespace NLayers.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231231094516_databaseComplated")]
+    [Migration("20231231102719_databaseComplated")]
     partial class databaseComplated
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -126,7 +126,7 @@ namespace NLayers.Repository.Migrations
                             Id = 1,
                             CertificateDescription = "Test",
                             CertificateName = "Test1",
-                            CreatedAt = new DateTime(2023, 12, 31, 12, 45, 16, 38, DateTimeKind.Local).AddTicks(1915),
+                            CreatedAt = new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3155),
                             FileName = "Test",
                             FilePath = "Test",
                             UserId = 1
@@ -136,7 +136,7 @@ namespace NLayers.Repository.Migrations
                             Id = 2,
                             CertificateDescription = "Test",
                             CertificateName = "Test2",
-                            CreatedAt = new DateTime(2023, 12, 31, 12, 45, 16, 38, DateTimeKind.Local).AddTicks(1916),
+                            CreatedAt = new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3157),
                             FileName = "Test",
                             FilePath = "Test",
                             UserId = 1
@@ -146,7 +146,7 @@ namespace NLayers.Repository.Migrations
                             Id = 3,
                             CertificateDescription = "Test",
                             CertificateName = "Test3",
-                            CreatedAt = new DateTime(2023, 12, 31, 12, 45, 16, 38, DateTimeKind.Local).AddTicks(1917),
+                            CreatedAt = new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3158),
                             FileName = "Test",
                             FilePath = "Test",
                             UserId = 1
@@ -156,7 +156,7 @@ namespace NLayers.Repository.Migrations
                             Id = 4,
                             CertificateDescription = "Test",
                             CertificateName = "Test4",
-                            CreatedAt = new DateTime(2023, 12, 31, 12, 45, 16, 38, DateTimeKind.Local).AddTicks(1918),
+                            CreatedAt = new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3159),
                             FileName = "Test",
                             FilePath = "Test",
                             UserId = 2
@@ -166,7 +166,7 @@ namespace NLayers.Repository.Migrations
                             Id = 5,
                             CertificateDescription = "Test",
                             CertificateName = "Test5",
-                            CreatedAt = new DateTime(2023, 12, 31, 12, 45, 16, 38, DateTimeKind.Local).AddTicks(1919),
+                            CreatedAt = new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3160),
                             FileName = "Test",
                             FilePath = "Test",
                             UserId = 3
@@ -646,7 +646,7 @@ namespace NLayers.Repository.Migrations
                         new
                         {
                             UserId = 1,
-                            CreatedAt = new DateTime(2023, 12, 31, 12, 45, 16, 38, DateTimeKind.Local).AddTicks(1784),
+                            CreatedAt = new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3039),
                             Email = "AdminEmail@email.com",
                             FirstName = "AdminName",
                             LastName = "AdminLastName",
@@ -657,7 +657,7 @@ namespace NLayers.Repository.Migrations
                         new
                         {
                             UserId = 2,
-                            CreatedAt = new DateTime(2023, 12, 31, 12, 45, 16, 38, DateTimeKind.Local).AddTicks(1815),
+                            CreatedAt = new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3052),
                             Email = "Email1@email.com",
                             FirstName = "FirstName1",
                             LastName = "LastName1",
@@ -668,7 +668,7 @@ namespace NLayers.Repository.Migrations
                         new
                         {
                             UserId = 3,
-                            CreatedAt = new DateTime(2023, 12, 31, 12, 45, 16, 38, DateTimeKind.Local).AddTicks(1816),
+                            CreatedAt = new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3053),
                             Email = "Email2@email.com",
                             FirstName = "FirstName2",
                             LastName = "LastName2",

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NLayers.Repository.Migrations
 {
-    public partial class CompanyUserRoleSeedData : Migration
+    public partial class databaseComplated : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -75,7 +75,8 @@ namespace NLayers.Repository.Migrations
                     FilePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -89,7 +90,8 @@ namespace NLayers.Repository.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DepartmentName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DepartmentDescription = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    DepartmentDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SchoolsId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -104,7 +106,8 @@ namespace NLayers.Repository.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SchoolName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SchoolDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -120,7 +123,8 @@ namespace NLayers.Repository.Migrations
                     LanguageName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LanguageDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FilePath = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    FilePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -273,11 +277,11 @@ namespace NLayers.Repository.Migrations
                 columns: table => new
                 {
                     SchoolInfosId = table.Column<int>(type: "int", nullable: false),
-                    UsersUserId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SchoolInformationEntityUserEntity", x => new { x.SchoolInfosId, x.UsersUserId });
+                    table.PrimaryKey("PK_SchoolInformationEntityUserEntity", x => new { x.SchoolInfosId, x.UserId });
                     table.ForeignKey(
                         name: "FK_SchoolInformationEntityUserEntity_SchoolInformationTable_SchoolInfosId",
                         column: x => x.SchoolInfosId,
@@ -285,8 +289,8 @@ namespace NLayers.Repository.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SchoolInformationEntityUserEntity_UsersTable_UsersUserId",
-                        column: x => x.UsersUserId,
+                        name: "FK_SchoolInformationEntityUserEntity_UsersTable_UserId",
+                        column: x => x.UserId,
                         principalTable: "UsersTable",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
@@ -297,11 +301,11 @@ namespace NLayers.Repository.Migrations
                 columns: table => new
                 {
                     LanguagesId = table.Column<int>(type: "int", nullable: false),
-                    UsersUserId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SpeakingLanguageEntityUserEntity", x => new { x.LanguagesId, x.UsersUserId });
+                    table.PrimaryKey("PK_SpeakingLanguageEntityUserEntity", x => new { x.LanguagesId, x.UserId });
                     table.ForeignKey(
                         name: "FK_SpeakingLanguageEntityUserEntity_SpeakingLanguagesTable_LanguagesId",
                         column: x => x.LanguagesId,
@@ -309,8 +313,8 @@ namespace NLayers.Repository.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SpeakingLanguageEntityUserEntity_UsersTable_UsersUserId",
-                        column: x => x.UsersUserId,
+                        name: "FK_SpeakingLanguageEntityUserEntity_UsersTable_UserId",
+                        column: x => x.UserId,
                         principalTable: "UsersTable",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
@@ -367,11 +371,11 @@ namespace NLayers.Repository.Migrations
                 columns: new[] { "Id", "CertificateDescription", "CertificateName", "CreatedAt", "DeleteAt", "FileName", "FilePath", "UpdateAt", "UserId" },
                 values: new object[,]
                 {
-                    { 1, "Test", "Test1", new DateTime(2023, 12, 31, 12, 19, 57, 125, DateTimeKind.Local).AddTicks(6604), null, "Test", "Test", null, 1 },
-                    { 2, "Test", "Test2", new DateTime(2023, 12, 31, 12, 19, 57, 125, DateTimeKind.Local).AddTicks(6605), null, "Test", "Test", null, 1 },
-                    { 3, "Test", "Test3", new DateTime(2023, 12, 31, 12, 19, 57, 125, DateTimeKind.Local).AddTicks(6606), null, "Test", "Test", null, 1 },
-                    { 4, "Test", "Test4", new DateTime(2023, 12, 31, 12, 19, 57, 125, DateTimeKind.Local).AddTicks(6607), null, "Test", "Test", null, 2 },
-                    { 5, "Test", "Test5", new DateTime(2023, 12, 31, 12, 19, 57, 125, DateTimeKind.Local).AddTicks(6608), null, "Test", "Test", null, 3 }
+                    { 1, "Test", "Test1", new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3155), null, "Test", "Test", null, 1 },
+                    { 2, "Test", "Test2", new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3157), null, "Test", "Test", null, 1 },
+                    { 3, "Test", "Test3", new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3158), null, "Test", "Test", null, 1 },
+                    { 4, "Test", "Test4", new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3159), null, "Test", "Test", null, 2 },
+                    { 5, "Test", "Test5", new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3160), null, "Test", "Test", null, 3 }
                 });
 
             migrationBuilder.InsertData(
@@ -392,12 +396,52 @@ namespace NLayers.Repository.Migrations
                 values: new object[,]
                 {
                     { 1, 1, "Test1", "Test1" },
-                    { 2, 1, "Test2", "Test2" },
-                    { 3, 2, "Test3", "Test3" },
-                    { 4, 2, "Test4", "Test4" },
-                    { 5, 2, "Test5", "Test5" },
+                    { 2, 5, "Test2", "Test2" },
+                    { 3, 5, "Test3", "Test3" },
+                    { 4, 4, "Test4", "Test4" },
+                    { 5, 4, "Test5", "Test5" },
                     { 6, 1, "Test6", "Test6" },
                     { 7, null, "Test7", "Test7" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "KnownProgramTable",
+                columns: new[] { "Id", "CreatedAt", "DeleteAt", "FileName", "FilePath", "ProgramDescription", "ProgramName", "UpdateAt", "UserId" },
+                values: new object[,]
+                {
+                    { 1, null, null, null, null, "Test1", "Test1", null, 2 },
+                    { 2, null, null, null, null, "Test2", "Test2", null, 3 },
+                    { 3, null, null, null, null, "Test3", "Test3", null, 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "SchoolDepartmentTable",
+                columns: new[] { "Id", "DepartmentDescription", "DepartmentName", "SchoolsId" },
+                values: new object[,]
+                {
+                    { 1, "Test1", "Test1", 2 },
+                    { 2, "Test2", "Test2", 3 },
+                    { 3, "Test3", "Test3", 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "SchoolInformationTable",
+                columns: new[] { "Id", "Location", "SchoolDescription", "SchoolName", "UserId" },
+                values: new object[,]
+                {
+                    { 1, "Test1", "Test1", "Test1", 2 },
+                    { 2, "Test2", "Test2", "Test2", 3 },
+                    { 3, "Test3", "Test3", "Test3", 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "SpeakingLanguagesTable",
+                columns: new[] { "Id", "FileName", "FilePath", "LanguageDescription", "LanguageName", "UserId" },
+                values: new object[,]
+                {
+                    { 1, null, null, "Test1", "Test1", 2 },
+                    { 2, null, null, "Test2", "Test2", 3 },
+                    { 3, null, null, "Test3", "Test3", 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -405,9 +449,9 @@ namespace NLayers.Repository.Migrations
                 columns: new[] { "UserId", "CreatedAt", "DeleteAt", "Email", "FirstName", "LastName", "Password", "PhoneNumber", "Roles", "UpdateAt" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 12, 31, 12, 19, 57, 125, DateTimeKind.Local).AddTicks(6501), null, "AdminEmail@email.com", "AdminName", "AdminLastName", "Admin", "AdminPhoneNumber", "Admin", null },
-                    { 2, new DateTime(2023, 12, 31, 12, 19, 57, 125, DateTimeKind.Local).AddTicks(6511), null, "Email1@email.com", "FirstName1", "LastName1", "Password1", "PhoneNumber1", "User", null },
-                    { 3, new DateTime(2023, 12, 31, 12, 19, 57, 125, DateTimeKind.Local).AddTicks(6513), null, "Email2@email.com", "FirstName2", "LastName2", "Password2", "PhoneNumber2", "User", null }
+                    { 1, new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3039), null, "AdminEmail@email.com", "AdminName", "AdminLastName", "Admin", "AdminPhoneNumber", "Admin", null },
+                    { 2, new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3052), null, "Email1@email.com", "FirstName1", "LastName1", "Password1", "PhoneNumber1", "User", null },
+                    { 3, new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3053), null, "Email2@email.com", "FirstName2", "LastName2", "Password2", "PhoneNumber2", "User", null }
                 });
 
             migrationBuilder.InsertData(
@@ -456,14 +500,14 @@ namespace NLayers.Repository.Migrations
                 column: "StudentDepartmentsId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SchoolInformationEntityUserEntity_UsersUserId",
+                name: "IX_SchoolInformationEntityUserEntity_UserId",
                 table: "SchoolInformationEntityUserEntity",
-                column: "UsersUserId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SpeakingLanguageEntityUserEntity_UsersUserId",
+                name: "IX_SpeakingLanguageEntityUserEntity_UserId",
                 table: "SpeakingLanguageEntityUserEntity",
-                column: "UsersUserId");
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
