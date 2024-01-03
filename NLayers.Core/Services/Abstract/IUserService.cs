@@ -1,4 +1,5 @@
 ﻿using NLayers.Core.Entities;
+using NLayers.Core.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,8 @@ namespace NLayers.Core.Services.Abstract
         Task<UserEntity> GetByIdUserUserAdress(int Id);
         Task<UserEntity> GetByIdUserUserInformation(int Id);
 
+        Task<List<UserEntity>> GetAllUserWithAdress();
+        Task<List<UserEntity>> GetAllUserWithUserInformation();
 
         Task<List<UserEntity>> GetAllUserCompanyInfos();
         Task<UserEntity> GetByIdUserCompanyInfos(int Id);

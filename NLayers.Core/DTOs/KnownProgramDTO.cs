@@ -1,14 +1,13 @@
-﻿using System;
+﻿using NLayers.Core.Entities;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLayers.Core.Entities
+namespace NLayers.Core.DTOs
 {
-    public class KnownProgramEntity :IFileEntity,IAuditEntity
+    public class KnownProgramDTO
     {
         public int Id { get; set; }
         public string? ProgramName { get; set; } = string.Empty;
@@ -18,8 +17,6 @@ namespace NLayers.Core.Entities
         public DateTime? CreatedAt { get; set; }
         public DateTime? DeleteAt { get; set; }
         public DateTime? UpdateAt { get; set; }
-        [ForeignKey(nameof(User))]
-        public int? UserId { get; set; }
-        public UserEntity? User { get; set; }
+        public int UserId { get; set; }
     }
 }

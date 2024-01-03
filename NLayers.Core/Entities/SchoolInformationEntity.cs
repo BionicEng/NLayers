@@ -17,6 +17,6 @@ namespace NLayers.Core.Entities
         public int? UserId { get; set; }
         public ICollection<SchoolDepartmentEntity> StudentDepartments { get; set; }
         
-        public ICollection<UserEntity> User { get; set; }
+        public UserEntity? User { get; set; }
     }
 }

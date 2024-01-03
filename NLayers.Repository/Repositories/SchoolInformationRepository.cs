@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace NLayers.Repository.Repositories
 {
-    public class SchoolInfoRepository : GenericRepository<SchoolInformationEntity>, ISchoolInformationRepository
+    public class SchoolInformationRepository : GenericRepository<SchoolInformationEntity>, ISchoolInformationRepository
     {
-        public SchoolInfoRepository(AppDbContext _context) : base(_context) { }
+        public SchoolInformationRepository(AppDbContext _context) : base(_context) { }
         public async Task<List<SchoolInformationEntity>> GetAllSchoolInformations()
         {
             return await _context.SchoolInformationTable.ToListAsync();

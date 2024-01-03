@@ -1,16 +1,14 @@
-﻿using System;
+﻿using NLayers.Core.Entities;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLayers.Core.Entities
+namespace NLayers.Core.DTOs
 {
-    public class UserInformationEntity : IFileEntity
+    public class UserInformationDTO
     {
-        [Key,ForeignKey(nameof(User))]
         public int Id { get; set; }
         public string? UserDescription { get; set; } = string.Empty;
         public DateTime? BirtDay { get; set; }
@@ -20,6 +18,5 @@ namespace NLayers.Core.Entities
         public string? FileName { get; set; }
         public string? FilePath { get; set; }
 
-        public UserEntity? User { get; set; }
     }
 }

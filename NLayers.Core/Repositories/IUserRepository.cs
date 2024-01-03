@@ -22,8 +22,10 @@ namespace NLayers.Core.Repositories
         Task<List<UserEntity>> GetAllUserSpeakingLanguages();
         Task<UserEntity> GetByIdUserSpeakingLanguages(int Id);
 
+        Task<List<UserEntity>> GetAllUserUserAdress();
         Task<UserEntity> GetByIdUserUserAdress(int Id);
         Task<UserEntity> GetByIdUserUserInformation(int Id);
+        Task<List<UserEntity>> GetAllUserUserInformation();
 
 
         Task<List<UserEntity>> GetAllUserCompanyInfos();

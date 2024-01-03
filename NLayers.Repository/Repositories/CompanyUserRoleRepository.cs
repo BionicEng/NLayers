@@ -21,12 +21,12 @@ namespace NLayers.Repository.Repositories
 
         public async Task<List<CompanyUserRoleEntity>> GetAllCompanyUserRoleWithCompanyInfoAsync()
         {
-            return await _context.CompanyUserRoleTable.Include(x => x.CompanyInfos).ToListAsync();
+            return await _context.CompanyUserRoleTable.Include(x => x.CompanyInfo).ToListAsync();
         }
 
         public async Task<List<CompanyUserRoleEntity>> GetAllCompanyUserRoleWithCompanyInfoWithUserAsync()
         {
-            return await _context.CompanyUserRoleTable.Include(x => x.CompanyInfos).ThenInclude(x=>x.User).ToListAsync();
+            return await _context.CompanyUserRoleTable.Include(x => x.CompanyInfo).ThenInclude(x=>x.User).ToListAsync();
         }
 
         public async Task<CompanyUserRoleEntity> GetByIdCompanyUserRoleAsync(int Id)
@@ -36,12 +36,12 @@ namespace NLayers.Repository.Repositories
 
         public async Task<CompanyUserRoleEntity> GetByIdCompanyUserRoleWithCompanyInfoAsync(int Id)
         {
-            return await _context.CompanyUserRoleTable.Include(x => x.CompanyInfos).SingleOrDefaultAsync(x => x.Id == Id);
+            return await _context.CompanyUserRoleTable.Include(x => x.CompanyInfo).SingleOrDefaultAsync(x => x.Id == Id);
         }
 
         public async Task<CompanyUserRoleEntity> GetByIdCompanyUserRoleWithCompanyInfoWithUserAsync(int Id)
         {
-            return await _context.CompanyUserRoleTable.Include(x => x.CompanyInfos).ThenInclude(x => x.User).SingleOrDefaultAsync(x => x.Id == Id);
+            return await _context.CompanyUserRoleTable.Include(x => x.CompanyInfo).ThenInclude(x => x.User).SingleOrDefaultAsync(x => x.Id == Id);
         }
     }
 }

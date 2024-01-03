@@ -17,10 +17,10 @@ namespace NLayers.Core.Entities
         public string? CompanyDescription { get; set; } = string.Empty;       
         public string? FileName { get; set; }
         public string? FilePath { get; set; }
+        [ForeignKey(nameof(User))]
         public int? UserId { get; set; }
-
+        public UserEntity? User { get; set; }
         public ICollection<CompanyUserRoleEntity> UserRoles { get; set; }
-        public ICollection<UserEntity>User { get; set; }
 
     }
 }

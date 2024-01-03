@@ -54,6 +54,16 @@ namespace NLayers.Repository.Repositories
             return await _context.UsersTable.Include(x => x.Languages).ToListAsync();
         }
 
+        public async Task<List<UserEntity>> GetAllUserUserAdress()
+        {
+            return await _context.UsersTable.Include(x => x.UserAdress).ToListAsync();
+        }
+
+        public async Task<List<UserEntity>> GetAllUserUserInformation()
+        {
+            return await _context.UsersTable.Include(x => x.UserInfo).ToListAsync();
+        }
+
         public async Task<UserEntity> GetByIdUser(int Id)
         {
             return await _context.UsersTable.SingleOrDefaultAsync(x=>x.UserId == Id);

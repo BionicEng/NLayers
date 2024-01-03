@@ -14,6 +14,6 @@ namespace NLayers.Core.Entities
         public string? DepartmentName { get; set; } = string.Empty;
         public string? DepartmentDescription {get; set; } = string.Empty;    
         public int? SchoolsId { get; set; }
-        public ICollection<SchoolInformationEntity> Schools { get; set; }
+        public SchoolInformationEntity? Schools { get; set; }
     }
 }

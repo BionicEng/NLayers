@@ -16,8 +16,8 @@ namespace NLayers.Core.Entities
         public ICollection<SpeakingLanguageEntity> Languages { get; set; }
         public ICollection<KnownProgramEntity> KnownPrograms { get; set; }
         public ICollection<CompanyInfoEntity> CompanyInfos { get; set; }
-        public UserInformationEntity UserInfo { get; set; }
-        public UserAdressEntity UserAdress { get; set; }
+        public UserInformationEntity? UserInfo { get; set; }
+        public UserAdressEntity? UserAdress { get; set; }
         public ICollection<SchoolInformationEntity>SchoolInfos { get; set; }
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;

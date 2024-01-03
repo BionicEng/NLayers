@@ -22,66 +22,6 @@ namespace NLayers.Repository.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("CertificateEntityUserEntity", b =>
-                {
-                    b.Property<int>("CertificatesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CertificatesId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("CertificateEntityUserEntity");
-                });
-
-            modelBuilder.Entity("CompanyInfoEntityCompanyUserRoleEntity", b =>
-                {
-                    b.Property<int>("CompanyInfosId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserRolesId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CompanyInfosId", "UserRolesId");
-
-                    b.HasIndex("UserRolesId");
-
-                    b.ToTable("CompanyInfoEntityCompanyUserRoleEntity");
-                });
-
-            modelBuilder.Entity("CompanyInfoEntityUserEntity", b =>
-                {
-                    b.Property<int>("CompanyInfosId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CompanyInfosId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("CompanyInfoEntityUserEntity");
-                });
-
-            modelBuilder.Entity("KnownProgramEntityUserEntity", b =>
-                {
-                    b.Property<int>("KnownProgramsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("KnownProgramsId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("KnownProgramEntityUserEntity");
-                });
-
             modelBuilder.Entity("NLayers.Core.Entities.CertificateEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -111,10 +51,12 @@ namespace NLayers.Repository.Migrations
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("CertificatesTable");
 
@@ -124,7 +66,7 @@ namespace NLayers.Repository.Migrations
                             Id = 1,
                             CertificateDescription = "Test",
                             CertificateName = "Test1",
-                            CreatedAt = new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3155),
+                            CreatedAt = new DateTime(2024, 1, 3, 17, 14, 4, 94, DateTimeKind.Local).AddTicks(4083),
                             FileName = "Test",
                             FilePath = "Test",
                             UserId = 1
@@ -134,7 +76,7 @@ namespace NLayers.Repository.Migrations
                             Id = 2,
                             CertificateDescription = "Test",
                             CertificateName = "Test2",
-                            CreatedAt = new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3157),
+                            CreatedAt = new DateTime(2024, 1, 3, 17, 14, 4, 94, DateTimeKind.Local).AddTicks(4084),
                             FileName = "Test",
                             FilePath = "Test",
                             UserId = 1
@@ -144,7 +86,7 @@ namespace NLayers.Repository.Migrations
                             Id = 3,
                             CertificateDescription = "Test",
                             CertificateName = "Test3",
-                            CreatedAt = new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3158),
+                            CreatedAt = new DateTime(2024, 1, 3, 17, 14, 4, 94, DateTimeKind.Local).AddTicks(4085),
                             FileName = "Test",
                             FilePath = "Test",
                             UserId = 1
@@ -154,7 +96,7 @@ namespace NLayers.Repository.Migrations
                             Id = 4,
                             CertificateDescription = "Test",
                             CertificateName = "Test4",
-                            CreatedAt = new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3159),
+                            CreatedAt = new DateTime(2024, 1, 3, 17, 14, 4, 94, DateTimeKind.Local).AddTicks(4112),
                             FileName = "Test",
                             FilePath = "Test",
                             UserId = 2
@@ -164,7 +106,7 @@ namespace NLayers.Repository.Migrations
                             Id = 5,
                             CertificateDescription = "Test",
                             CertificateName = "Test5",
-                            CreatedAt = new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3160),
+                            CreatedAt = new DateTime(2024, 1, 3, 17, 14, 4, 94, DateTimeKind.Local).AddTicks(4113),
                             FileName = "Test",
                             FilePath = "Test",
                             UserId = 3
@@ -201,6 +143,8 @@ namespace NLayers.Repository.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("CompanyInfoTable");
 
@@ -270,7 +214,7 @@ namespace NLayers.Repository.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("CompanyInfosId")
+                    b.Property<int?>("CompanyInfoId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserRoleDescription")
@@ -281,54 +225,57 @@ namespace NLayers.Repository.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CompanyInfoId");
+
                     b.ToTable("CompanyUserRoleTable");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CompanyInfosId = 1,
+                            CompanyInfoId = 1,
                             UserRoleDescription = "Test1",
                             UserRoleName = "Test1"
                         },
                         new
                         {
                             Id = 2,
-                            CompanyInfosId = 5,
+                            CompanyInfoId = 2,
                             UserRoleDescription = "Test2",
                             UserRoleName = "Test2"
                         },
                         new
                         {
                             Id = 3,
-                            CompanyInfosId = 5,
+                            CompanyInfoId = 3,
                             UserRoleDescription = "Test3",
                             UserRoleName = "Test3"
                         },
                         new
                         {
                             Id = 4,
-                            CompanyInfosId = 4,
+                            CompanyInfoId = 4,
                             UserRoleDescription = "Test4",
                             UserRoleName = "Test4"
                         },
                         new
                         {
                             Id = 5,
-                            CompanyInfosId = 4,
+                            CompanyInfoId = 5,
                             UserRoleDescription = "Test5",
                             UserRoleName = "Test5"
                         },
                         new
                         {
                             Id = 6,
-                            CompanyInfosId = 1,
+                            CompanyInfoId = 1,
                             UserRoleDescription = "Test6",
                             UserRoleName = "Test6"
                         },
                         new
                         {
                             Id = 7,
+                            CompanyInfoId = 1,
                             UserRoleDescription = "Test7",
                             UserRoleName = "Test7"
                         });
@@ -363,10 +310,12 @@ namespace NLayers.Repository.Migrations
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("KnownProgramTable");
 
@@ -412,6 +361,8 @@ namespace NLayers.Repository.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("SchoolsId");
 
                     b.ToTable("SchoolDepartmentTable");
 
@@ -460,6 +411,8 @@ namespace NLayers.Repository.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("SchoolInformationTable");
 
@@ -514,6 +467,8 @@ namespace NLayers.Repository.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("SpeakingLanguagesTable");
 
@@ -644,7 +599,7 @@ namespace NLayers.Repository.Migrations
                         new
                         {
                             UserId = 1,
-                            CreatedAt = new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3039),
+                            CreatedAt = new DateTime(2024, 1, 3, 17, 14, 4, 94, DateTimeKind.Local).AddTicks(3995),
                             Email = "AdminEmail@email.com",
                             FirstName = "AdminName",
                             LastName = "AdminLastName",
@@ -655,7 +610,7 @@ namespace NLayers.Repository.Migrations
                         new
                         {
                             UserId = 2,
-                            CreatedAt = new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3052),
+                            CreatedAt = new DateTime(2024, 1, 3, 17, 14, 4, 94, DateTimeKind.Local).AddTicks(4005),
                             Email = "Email1@email.com",
                             FirstName = "FirstName1",
                             LastName = "LastName1",
@@ -666,7 +621,7 @@ namespace NLayers.Repository.Migrations
                         new
                         {
                             UserId = 3,
-                            CreatedAt = new DateTime(2023, 12, 31, 13, 27, 18, 871, DateTimeKind.Local).AddTicks(3053),
+                            CreatedAt = new DateTime(2024, 1, 3, 17, 14, 4, 94, DateTimeKind.Local).AddTicks(4006),
                             Email = "Email2@email.com",
                             FirstName = "FirstName2",
                             LastName = "LastName2",
@@ -736,109 +691,67 @@ namespace NLayers.Repository.Migrations
                         });
                 });
 
-            modelBuilder.Entity("SchoolDepartmentEntitySchoolInformationEntity", b =>
+            modelBuilder.Entity("NLayers.Core.Entities.CertificateEntity", b =>
                 {
-                    b.Property<int>("SchoolsId")
-                        .HasColumnType("int");
+                    b.HasOne("NLayers.Core.Entities.UserEntity", "User")
+                        .WithMany("Certificates")
+                        .HasForeignKey("UserId");
 
-                    b.Property<int>("StudentDepartmentsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("SchoolsId", "StudentDepartmentsId");
-
-                    b.HasIndex("StudentDepartmentsId");
-
-                    b.ToTable("SchoolDepartmentEntitySchoolInformationEntity");
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SchoolInformationEntityUserEntity", b =>
+            modelBuilder.Entity("NLayers.Core.Entities.CompanyInfoEntity", b =>
                 {
-                    b.Property<int>("SchoolInfosId")
-                        .HasColumnType("int");
+                    b.HasOne("NLayers.Core.Entities.UserEntity", "User")
+                        .WithMany("CompanyInfos")
+                        .HasForeignKey("UserId");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("SchoolInfosId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("SchoolInformationEntityUserEntity");
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SpeakingLanguageEntityUserEntity", b =>
+            modelBuilder.Entity("NLayers.Core.Entities.CompanyUserRoleEntity", b =>
                 {
-                    b.Property<int>("LanguagesId")
-                        .HasColumnType("int");
+                    b.HasOne("NLayers.Core.Entities.CompanyInfoEntity", "CompanyInfo")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("CompanyInfoId");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("LanguagesId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("SpeakingLanguageEntityUserEntity");
+                    b.Navigation("CompanyInfo");
                 });
 
-            modelBuilder.Entity("CertificateEntityUserEntity", b =>
+            modelBuilder.Entity("NLayers.Core.Entities.KnownProgramEntity", b =>
                 {
-                    b.HasOne("NLayers.Core.Entities.CertificateEntity", null)
-                        .WithMany()
-                        .HasForeignKey("CertificatesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("NLayers.Core.Entities.UserEntity", "User")
+                        .WithMany("KnownPrograms")
+                        .HasForeignKey("UserId");
 
-                    b.HasOne("NLayers.Core.Entities.UserEntity", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("CompanyInfoEntityCompanyUserRoleEntity", b =>
+            modelBuilder.Entity("NLayers.Core.Entities.SchoolDepartmentEntity", b =>
                 {
-                    b.HasOne("NLayers.Core.Entities.CompanyInfoEntity", null)
-                        .WithMany()
-                        .HasForeignKey("CompanyInfosId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("NLayers.Core.Entities.SchoolInformationEntity", "Schools")
+                        .WithMany("StudentDepartments")
+                        .HasForeignKey("SchoolsId");
 
-                    b.HasOne("NLayers.Core.Entities.CompanyUserRoleEntity", null)
-                        .WithMany()
-                        .HasForeignKey("UserRolesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Schools");
                 });
 
-            modelBuilder.Entity("CompanyInfoEntityUserEntity", b =>
+            modelBuilder.Entity("NLayers.Core.Entities.SchoolInformationEntity", b =>
                 {
-                    b.HasOne("NLayers.Core.Entities.CompanyInfoEntity", null)
-                        .WithMany()
-                        .HasForeignKey("CompanyInfosId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("NLayers.Core.Entities.UserEntity", "User")
+                        .WithMany("SchoolInfos")
+                        .HasForeignKey("UserId");
 
-                    b.HasOne("NLayers.Core.Entities.UserEntity", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("KnownProgramEntityUserEntity", b =>
+            modelBuilder.Entity("NLayers.Core.Entities.SpeakingLanguageEntity", b =>
                 {
-                    b.HasOne("NLayers.Core.Entities.KnownProgramEntity", null)
-                        .WithMany()
-                        .HasForeignKey("KnownProgramsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("NLayers.Core.Entities.UserEntity", "User")
+                        .WithMany("Languages")
+                        .HasForeignKey("UserId");
 
-                    b.HasOne("NLayers.Core.Entities.UserEntity", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("NLayers.Core.Entities.UserAdressEntity", b =>
@@ -863,58 +776,31 @@ namespace NLayers.Repository.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SchoolDepartmentEntitySchoolInformationEntity", b =>
+            modelBuilder.Entity("NLayers.Core.Entities.CompanyInfoEntity", b =>
                 {
-                    b.HasOne("NLayers.Core.Entities.SchoolInformationEntity", null)
-                        .WithMany()
-                        .HasForeignKey("SchoolsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NLayers.Core.Entities.SchoolDepartmentEntity", null)
-                        .WithMany()
-                        .HasForeignKey("StudentDepartmentsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("UserRoles");
                 });
 
-            modelBuilder.Entity("SchoolInformationEntityUserEntity", b =>
+            modelBuilder.Entity("NLayers.Core.Entities.SchoolInformationEntity", b =>
                 {
-                    b.HasOne("NLayers.Core.Entities.SchoolInformationEntity", null)
-                        .WithMany()
-                        .HasForeignKey("SchoolInfosId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NLayers.Core.Entities.UserEntity", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SpeakingLanguageEntityUserEntity", b =>
-                {
-                    b.HasOne("NLayers.Core.Entities.SpeakingLanguageEntity", null)
-                        .WithMany()
-                        .HasForeignKey("LanguagesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NLayers.Core.Entities.UserEntity", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("StudentDepartments");
                 });
 
             modelBuilder.Entity("NLayers.Core.Entities.UserEntity", b =>
                 {
-                    b.Navigation("UserAdress")
-                        .IsRequired();
+                    b.Navigation("Certificates");
 
-                    b.Navigation("UserInfo")
-                        .IsRequired();
+                    b.Navigation("CompanyInfos");
+
+                    b.Navigation("KnownPrograms");
+
+                    b.Navigation("Languages");
+
+                    b.Navigation("SchoolInfos");
+
+                    b.Navigation("UserAdress");
+
+                    b.Navigation("UserInfo");
                 });
 #pragma warning restore 612, 618
         }
