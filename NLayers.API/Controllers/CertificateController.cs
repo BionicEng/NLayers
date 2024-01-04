@@ -60,11 +60,12 @@ namespace NLayers.API.Controllers
 
         }
         [HttpPut("[action]")]
-        public async Task<IActionResult> UpdateCertificate(CertificateDTO certificate)
+        public async Task<IActionResult> UpdateCertificate(CertificateDTO certificate,int id)
         {
             if (certificate is not null)
             {
                 var certificateEntity = _mapper.Map<CertificateEntity>(certificate);
+                certificateEntity.Id = id;
                 await _certificateService.UpdateAsync(certificateEntity);
                 return Ok(certificateEntity);
             }

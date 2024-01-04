@@ -15,6 +15,7 @@ namespace NLayers.Services.Mapper
         {
             CreateMap<CertificateDTO,CertificateEntity>().ReverseMap();
             CreateMap<CompanyInfoDTO, CompanyInfoEntity>().ReverseMap();
+            CreateMap<CompanyInfoAddDTO, CompanyInfoEntity>().ReverseMap();
             CreateMap<CompanyUserRoleDTO, CompanyUserRoleEntity>().ReverseMap();
             CreateMap<KnownProgramDTO, KnownProgramEntity>().ReverseMap();
             CreateMap<SchoolDepartmentDTO, SchoolDepartmentEntity>().ReverseMap();
