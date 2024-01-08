@@ -55,7 +55,7 @@ namespace NLayers.API.Controllers
                 return Ok(certificateEntity);
 
             }
-            return BadRequest();
+            return NotFound();
 
 
         }
@@ -69,7 +69,7 @@ namespace NLayers.API.Controllers
                 await _certificateService.UpdateAsync(certificateEntity);
                 return Ok(certificateEntity);
             }
-            return BadRequest();
+            return NotFound();
         }
         [HttpDelete("[action]")]
         public async Task<IActionResult> DeleteCertificate(int id)
@@ -81,7 +81,7 @@ namespace NLayers.API.Controllers
                 await _certificateService.DeleteAsync(certificateEntity);
                 return Ok();
             }
-            return BadRequest();
+            return NotFound();
         }
     }
 }
