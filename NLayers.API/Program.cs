@@ -8,6 +8,7 @@ using NLayers.Repository.Services.Concrete;
 using NLayers.Services.Mapper;
 using NLayers.Services.Services.Concrete;
 using System.Reflection;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +19,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+});
 //Services
 builder.Services.AddAutoMapper(typeof(MapProfile));
 builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();

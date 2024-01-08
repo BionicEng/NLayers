@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NLayers.Business.Services.Concrete;
 using NLayers.MVC.Models;
 using System.Diagnostics;
 
@@ -6,19 +7,21 @@ namespace NLayers.MVC.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly UserService _userService;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, UserService userService)
         {
             _logger = logger;
+            _userService = userService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> Privacy()
         {
             return View();
         }

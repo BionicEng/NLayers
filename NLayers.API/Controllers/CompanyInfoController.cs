@@ -72,7 +72,7 @@ namespace NLayers.API.Controllers
         [HttpDelete("[action]")]
         public async Task<IActionResult> DeleteCompanyInfo(int id)
         {
-            var companyInfoEntity = await _companyInfoService.GetByIdAsync(id);
+            var companyInfoEntity = await _companyInfoService.GetByIdCompanyInfoAsync(id);
 
             if (companyInfoEntity is not null)
             {

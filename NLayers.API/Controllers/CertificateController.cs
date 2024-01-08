@@ -46,7 +46,7 @@ namespace NLayers.API.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> AddCertificate(CertificateDTO certificate)
+        public async Task<IActionResult> AddCertificate(CertificateAddDTO certificate)
         {
             if (certificate is not null)
             {
@@ -60,7 +60,7 @@ namespace NLayers.API.Controllers
 
         }
         [HttpPut("[action]")]
-        public async Task<IActionResult> UpdateCertificate(CertificateDTO certificate,int id)
+        public async Task<IActionResult> UpdateCertificate(CertificateAddDTO certificate,int id)
         {
             if (certificate is not null)
             {
@@ -74,7 +74,7 @@ namespace NLayers.API.Controllers
         [HttpDelete("[action]")]
         public async Task<IActionResult> DeleteCertificate(int id)
         {
-            var certificateEntity = await _certificateService.GetByIdAsync(id);
+            var certificateEntity = await _certificateService.GetByIdCertificate(id);
 
             if (certificateEntity is not null)
             {

@@ -245,7 +245,7 @@ namespace NLayers.API.Controllers
             return NotFound();
         }
         [HttpGet("[action]")]
-        public async Task<IActionResult> GetAllUsersWithUserİnformationDTO()
+        public async Task<IActionResult> GetAllUserWithUserInformation()
         {
             var usersWithUserDTO = await _userService.GetAllUserWithUserInformation();
             if (usersWithUserDTO is not null)
@@ -258,7 +258,7 @@ namespace NLayers.API.Controllers
 
         }
         [HttpGet("[action]")]
-        public async Task<IActionResult> GetByIdUserWithUserInfo(int Id)
+        public async Task<IActionResult> GetByIdUserWithUserInformation(int Id)
         {
             var user = await _userService.GetByIdUserUserInformation(Id);
             if (user is not null)

@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NLayers.Services\NLayers.Services.csproj" />
+    <ProjectReference Include="..\NLayers.Business\NLayers.Business.csproj" />
   </ItemGroup>
 
 </Project>

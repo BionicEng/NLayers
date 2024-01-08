@@ -42,7 +42,7 @@ namespace NLayers.API.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> AddCompanyUserRole(CompanyUserRoleDTO companyUserRole)
+        public async Task<IActionResult> AddCompanyUserRole(CompanyUserRoleAddDTO companyUserRole)
         {
             if (companyUserRole is not null)
             {
@@ -55,7 +55,7 @@ namespace NLayers.API.Controllers
 
         }
         [HttpPut("[action]")]
-        public async Task<IActionResult> UpdateCompanyUserRole(CompanyUserRoleDTO companyUserRole, int id)
+        public async Task<IActionResult> UpdateCompanyUserRole(CompanyUserRoleAddDTO companyUserRole, int id)
         {
             if (companyUserRole is not null)
             {

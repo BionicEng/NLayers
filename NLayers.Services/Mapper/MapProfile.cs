@@ -14,13 +14,19 @@ namespace NLayers.Services.Mapper
         public MapProfile()
         {
             CreateMap<CertificateDTO,CertificateEntity>().ReverseMap();
+            CreateMap<CertificateAddDTO, CertificateEntity>().ReverseMap();
             CreateMap<CompanyInfoDTO, CompanyInfoEntity>().ReverseMap();
             CreateMap<CompanyInfoAddDTO, CompanyInfoEntity>().ReverseMap();
             CreateMap<CompanyUserRoleDTO, CompanyUserRoleEntity>().ReverseMap();
+            CreateMap<CompanyUserRoleAddDTO, CompanyUserRoleEntity>().ReverseMap();
             CreateMap<KnownProgramDTO, KnownProgramEntity>().ReverseMap();
+            CreateMap<KnownProgramAddDTO, KnownProgramEntity>().ReverseMap();
             CreateMap<SchoolDepartmentDTO, SchoolDepartmentEntity>().ReverseMap();
+            CreateMap<SchoolDepartmentAddDTO, SchoolDepartmentEntity>().ReverseMap();
             CreateMap<SchoolInformationDTO, SchoolInformationEntity>().ReverseMap();
+            CreateMap<SchoolInformationAddDTO, SchoolInformationEntity>().ReverseMap();
             CreateMap<SpeakingLanguageDTO, SpeakingLanguageEntity>().ReverseMap();
+            CreateMap<SpeakingLanguageAddDTO, SpeakingLanguageEntity>().ReverseMap();
             CreateMap<UserAdressDTO, UserAdressEntity>().ReverseMap();
             CreateMap<UserDTO, UserEntity>().ReverseMap();
             CreateMap<UserInformationDTO, UserInformationEntity>().ReverseMap();

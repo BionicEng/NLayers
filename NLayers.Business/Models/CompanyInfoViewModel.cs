@@ -1,13 +1,13 @@
-﻿using NLayers.Core.Entities;
+﻿using NLayers.Core.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLayers.Core.DTOs
+namespace NLayers.Business.Models
 {
-    public class CompanyInfoDTO
+    public class CompanyInfoViewModel
     {
         public int Id { get; set; }
         public string? CompanyName { get; set; } = string.Empty;
@@ -17,8 +17,6 @@ namespace NLayers.Core.DTOs
         public string? FileName { get; set; }
         public string? FilePath { get; set; }
         public int UserId { get; set; }
-        public ICollection<CompanyUserRoleDTO> UserRoles { get; set; }
-
-
+        public ICollection<CompanyUserRoleViewModel> UserRoles { get; set; }
     }
 }
