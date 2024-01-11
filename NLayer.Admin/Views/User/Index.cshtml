@@ -1,0 +1,36 @@
+﻿@using NLayers.Business.Models;
+@model ICollection<UserViewModel>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">İsim ve Soyisim</th>
+            <th scope="col">Telefon No</th>
+            <th scope="col">Email Adres</th>
+            <th scope="col">Oluşturulma Tarihi</th>
+            <th scope="col">Güncelleme Tarihi</th>
+            <th scope="col">Silme Tarihi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.UserId</th>
+                <td>@item.FirstName @item.LastName</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.Email</td>
+                <td>@item.CreatedAt</td>
+                <td>@item.UpdateAt</td>
+                <td>@item.DeleteAt</td>
+                <td>
+                 <a asp-action="Delete" class = "btn-danger" asp-controller="User" asp-route-id="@item.UserId">Sil</a></td>
+            </tr>
+
+        }
+       
+    </tbody>
+</table>

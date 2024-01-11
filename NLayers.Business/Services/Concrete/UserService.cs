@@ -1,6 +1,7 @@
 ﻿using NLayers.Business.Models;using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,21 @@ namespace NLayers.Business.Services.Concrete
         {
             var response = await _httpClient.GetFromJsonAsync<UserViewModel>($"User/GetByIdUser?={Id}");
             return response;
+        }
+        public async Task<UserViewModel> AddUser(UserViewModel model)
+        {
+            var response = await _httpClient.PostAsJsonAsync("User/AddUser", model);
+            return model;
+        }
+        public async Task<UserViewModel> UpdateUser(UserViewModel model)
+        {
+            var response = await _httpClient.PostAsJsonAsync("User/UpdateUser", model);
+            return model;
+        }
+        public async Task<int> DeleteUser(int id)
+        {
+            var response = await _httpClient.DeleteAsync($"User/DeleteUser?={id}");
+            return id;
         }
 
         public async Task<ICollection<UserWithCompanyInfoViewModel>> GetAllUserWithCompanyInfos()

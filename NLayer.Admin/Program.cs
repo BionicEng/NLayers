@@ -1,8 +1,18 @@
+using NLayers.Business.Services.Concrete;
+using System.Text.Json.Serialization;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+});
+builder.Services.AddHttpClient<UserService>(options =>
+{
+    options.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
